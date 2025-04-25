@@ -13,11 +13,11 @@ def download():
     url = request.form['url']
     output_path = 'video.mp4'
 
-ydl_opts = {
-    'format': 'best',
-    'outtmpl': output_path,
-    'cookiefile': 'cookies.txt'
-}
+    ydl_opts = {
+        'format': 'best',
+        'outtmpl': output_path,
+        'cookiefile': 'cookies.txt'  # seulement si tu as ce fichier
+    }
 
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
@@ -25,9 +25,7 @@ ydl_opts = {
     except Exception as e:
         return f"Erreur lors du téléchargement : {e}"
 
-        return send_file(output_path, as_attachment=True)
-
-import os
+    return send_file(output_path, as_attachment=True)
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
