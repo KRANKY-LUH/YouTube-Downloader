@@ -13,10 +13,11 @@ def download():
     url = request.form['url']
     output_path = 'video.mp4'
 
-    ydl_opts = {
-        'format': 'best',
-        'outtmpl': output_path
-    }
+ydl_opts = {
+    'format': 'best',
+    'outtmpl': output_path,
+    'cookiefile': 'cookies.txt'
+}
 
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
