@@ -24,9 +24,8 @@ def download():
     except Exception as e:
         return f"Erreur lors du téléchargement : {e}"
 
-    return send_file(output_path, as_attachment=True)
+        return send_file(output_path, as_attachment=True)
 
-if __name__ == '__main__':
 import os
 
 if __name__ == '__main__':
